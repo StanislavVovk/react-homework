@@ -1,5 +1,5 @@
 // import PropTypes from 'prop-types';
-import styles from '../assets/styles/style.css'
+import styles from '../../assets/styles/style.css'
 
 function Header() {
     return (

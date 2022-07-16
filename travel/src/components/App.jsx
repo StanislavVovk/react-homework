@@ -1,5 +1,6 @@
 import '../App.css';
 import Header from "./header/header";
+import Footer from "./footer/footer";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
             {/*    <Route path={AppRoute.SIGN_IN} element={SignIn}/>*/}
             {/*    */}
             {/*</Routes>*/}
+            <Footer/>
         </main>
     );
 }
