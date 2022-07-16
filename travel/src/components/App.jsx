@@ -1,10 +1,17 @@
 import '../App.css';
+import Header from "./header/header";
+
 
 function App() {
     return (
-        <div>
-            <span> "dasdadasdsadsajd"</span>
-        </div>
+        <main>
+            <Header/>
+            {/* todo create routes here*/}
+            {/*<Routes>*/}
+            {/*    <Route path={AppRoute.SIGN_IN} element={SignIn}/>*/}
+            {/*    */}
+            {/*</Routes>*/}
+        </main>
     );
 }
 
