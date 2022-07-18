@@ -1,5 +1,5 @@
 import heart from '../../assets/images/heart.svg'
-function Footer() {
+const Footer = () => {
     return (
         <footer className="footer">
             <span className="footer__text">

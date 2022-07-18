@@ -5,5 +5,4 @@ const AppRoute = {
     BOOKINGS: "/bookings",
     TRIP_$ID: "/trip/:tripId"
 }
-
-export default AppRoute
+export {AppRoute};
