@@ -3,6 +3,6 @@ const AppRoute = {
     SIGN_IN: "/sign-in",
     SIGN_UP: "/sign-up",
     BOOKINGS: "/bookings",
-    TRIP_$ID: "/trip/:tripId"
+    TRIP_$ID: "/trip/"
 }
 export {AppRoute};
