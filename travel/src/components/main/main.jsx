@@ -1,6 +1,6 @@
 import Header from "../header/header";
 import CardsList from "./components/cardsFormer";
-import trips from "./constants";
+import {trips} from "./constants";
 import {useState} from "react";
 
 
@@ -9,7 +9,11 @@ const Main = () => {
 
     const [difficulty, setDifficulty] = useState("");
 
+    const [search, setSearch] = useState("");
 
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+    }
 
     const handleDifficultChange = (e) => {
         return setDifficulty(e.target.value);
@@ -29,7 +33,7 @@ const Main = () => {
                     <form className="trips-filter__form" autoComplete="off">
                         <label className="trips-filter__search input">
                             <span className="visually-hidden">Search by name</span>
-                            <input name="search" type="search" placeholder="search by title"/>
+                            <input name="search" type="search" placeholder="search by title" onChange={handleSearch}/>
                         </label>
                         <label className="select">
                             <span className="visually-hidden">Search by duration</span>
@@ -53,7 +57,7 @@ const Main = () => {
                 </section>
                 <section className="trips">
                     <h2 className="visually-hidden">Trips List</h2>
-                    <CardsList trips={trips} duration={duration} difficulty={difficulty}/>
+                    <CardsList trips={trips} duration={duration} difficulty={difficulty} search={search}/>
                 </section>
             </main>
         </>
