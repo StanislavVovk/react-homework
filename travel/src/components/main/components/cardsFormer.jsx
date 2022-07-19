@@ -1,7 +1,10 @@
 import TripCard from "./tripCard";
 
 
-const CardsList = ( { trips, duration, difficulty}) => {
+const CardsList = ( { trips, duration, difficulty, search}) => {
+    if (search) {
+        trips = trips.filter(trip => trip.title.toLowerCase().includes(search.toLowerCase()));
+    }
     if (duration) {
         if (duration === "0_x_5") {
             trips = trips.filter(trip => trip.duration <= 5);
