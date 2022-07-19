@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
-import {useController} from 'react-hook-form';
 
-export const Input = ({name, control, className, type, required, autoComplete}) => {
-    const {field} = useController({name, control})
+export const Input = ({name, className, type, required, autoComplete}) => {
+
     return (
         <input
-            {...field}
+            name={name}
             className={className}
             type={type}
             autoComplete={autoComplete}
@@ -17,10 +16,8 @@ export const Input = ({name, control, className, type, required, autoComplete}) 
 
 Input.propTypes = {
     name: PropTypes.string.isRequired,
-    control: PropTypes.oneOfType([PropTypes.object]).isRequired,
     className: PropTypes.string,
     type: PropTypes.oneOf(['email', 'password', 'fullname']),
     required: PropTypes.bool,
-    autocomplete: PropTypes.string,
-    errors: PropTypes.oneOfType([PropTypes.object]),
+    autocomplete: PropTypes.string
 }
