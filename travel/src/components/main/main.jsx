@@ -1,9 +1,24 @@
 import Header from "../header/header";
 import CardsList from "./components/cardsFormer";
 import trips from "./constants";
+import {useState} from "react";
 
 
 const Main = () => {
+    const [duration, setDuration] = useState("");
+
+    const [difficulty, setDifficulty] = useState("");
+
+
+
+    const handleDifficultChange = (e) => {
+        return setDifficulty(e.target.value);
+    }
+
+    const handleDurationChange = (e) => {
+        return setDuration(e.target.value);
+
+    }
     return (
         <>
             <Header/>
@@ -18,7 +33,7 @@ const Main = () => {
                         </label>
                         <label className="select">
                             <span className="visually-hidden">Search by duration</span>
-                            <select name="duration">
+                            <select name="duration" onChange={handleDurationChange}>
                                 <option value="">duration</option>
                                 <option value="0_x_5">&lt; 5 days</option>
                                 <option value="5_x_10">&lt; 10 days</option>
@@ -27,7 +42,7 @@ const Main = () => {
                         </label>
                         <label className="select">
                             <span className="visually-hidden">Search by level</span>
-                            <select name="level">
+                            <select name="level" onChange={handleDifficultChange}>
                                 <option value="">level</option>
                                 <option value="easy">easy</option>
                                 <option value="moderate">moderate</option>
@@ -38,77 +53,7 @@ const Main = () => {
                 </section>
                 <section className="trips">
                     <h2 className="visually-hidden">Trips List</h2>
-                    <CardsList trips={trips} />
-                    {/*<ul className="trip-list">*/}
-                    {/*    <li class="trip-card">*/}
-                    {/*        <img src="../travel/src/assets/images/iceland.jpg" alt="trip image"/>*/}
-                    {/*        <div class="trip-card__content">*/}
-                    {/*            <div class="trip-info">*/}
-                    {/*                <h3 class="trip-info__title">Iceland</h3>*/}
-                    {/*                <div class="trip-info__content">*/}
-                    {/*                    <span class="trip-info__duration"><strong>15</strong> days</span>*/}
-                    {/*                    <span class="trip-info__level">easy</span>*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*            <div class="trip-price">*/}
-                    {/*                <span>Price</span>*/}
-                    {/*                <strong class="trip-price__value">7000 $</strong>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <a href="./trip.html" class="button">Discover a trip</a>*/}
-                    {/*    </li>*/}
-                    {/*    <li class="trip-card">*/}
-                    {/*        <img src="../travel/src/assets/images/iceland.jpg" alt="trip image"/>*/}
-                    {/*        <div class="trip-card__content">*/}
-                    {/*            <div class="trip-info">*/}
-                    {/*                <h3 class="trip-info__title">Iceland</h3>*/}
-                    {/*                <div class="trip-info__content">*/}
-                    {/*                    <span class="trip-info__duration"><strong>15</strong> days</span>*/}
-                    {/*                    <span class="trip-info__level">easy</span>*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*            <div class="trip-price">*/}
-                    {/*                <span>Price</span>*/}
-                    {/*                <strong class="trip-price__value">7000 $</strong>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <a href="./trip.html" class="button">Discover a trip</a>*/}
-                    {/*    </li>*/}
-                    {/*    <li class="trip-card">*/}
-                    {/*        <img src="../travel/src/assets/images/iceland.jpg" alt="trip image"/>*/}
-                    {/*        <div class="trip-card__content">*/}
-                    {/*            <div class="trip-info">*/}
-                    {/*                <h3 class="trip-info__title">Iceland</h3>*/}
-                    {/*                <div class="trip-info__content">*/}
-                    {/*                    <span class="trip-info__duration"><strong>15</strong> days</span>*/}
-                    {/*                    <span class="trip-info__level">easy</span>*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*            <div class="trip-price">*/}
-                    {/*                <span>Price</span>*/}
-                    {/*                <strong class="trip-price__value">7000 $</strong>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <a href="./trip.html" class="button">Discover a trip</a>*/}
-                    {/*    </li>*/}
-                    {/*    <li class="trip-card">*/}
-                    {/*        <img src={"../travel/src/assets/images/iceland.jpg"} alt="trip image"/>*/}
-                    {/*        <div class="trip-card__content">*/}
-                    {/*            <div class="trip-info">*/}
-                    {/*                <h3 class="trip-info__title">Iceland</h3>*/}
-                    {/*                <div class="trip-info__content">*/}
-                    {/*                    <span class="trip-info__duration"><strong>15</strong> days</span>*/}
-                    {/*                    <span class="trip-info__level">easy</span>*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*            <div class="trip-price">*/}
-                    {/*                <span>Price</span>*/}
-                    {/*                <strong className="trip-price__value">7000 $</strong>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*        <a href={"./trip.html"} class="button">Discover a trip</a>*/}
-                    {/*    </li>*/}
-                    {/*</ul>*/}
+                    <CardsList trips={trips} duration={duration} difficulty={difficulty}/>
                 </section>
             </main>
         </>

@@ -1,10 +1,32 @@
 import TripCard from "./tripCard";
-import PropTypes from "prop-types";
 
-const CardsList = (trips, filter) => {
+
+const CardsList = ( { trips, duration, difficulty}) => {
+    if (duration) {
+        if (duration === "0_x_5") {
+            trips = trips.filter(trip => trip.duration <= 5);
+        }
+        else if (duration === "5_x_10") {
+            trips = trips.filter(trip => trip.duration <= 10 && trip.duration > 5);
+        }
+        else if (duration === "10_x") {
+            trips = trips.filter(trip => trip.duration > 10);
+        }
+    }
+    if (difficulty) {
+        if (difficulty === "easy") {
+            trips = trips.filter(trip => trip.level === "easy");
+        }
+        else if (difficulty === "moderate") {
+            trips = trips.filter(trip => trip.level === "moderate");
+        }
+        else if (difficulty === "difficult") {
+            trips = trips.filter(trip => trip.level === "difficult");
+        }
+    }
     return (
         <ul className="trip-list">
-            {trips.trips.map((trip => (
+            {trips.map((trip => (
                 <TripCard
                     key={trip.id}
                     image={trip.image}
@@ -18,7 +40,4 @@ const CardsList = (trips, filter) => {
     )
 }
 
-CardsList.propTypes = {
-    trips: PropTypes.array.isRequired
-}
 export default CardsList
